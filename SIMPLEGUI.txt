@@ -1,0 +1,54 @@
+import simplegui
+color=['red','pink','purple','black','blue','brown','yellow','green','aqua']
+i=1
+msg=''
+msg1=''
+msg2=''
+size=30
+def draw(canvas):
+    canvas.draw_text('welcome',[250,60],size,color[i])
+    canvas.draw_text(msg,[50,110],size,color[i])
+    canvas.draw_text(msg1,[50,140],size,color[i])
+    canvas.draw_text(msg2,[50,170],size,color[i])
+def name():
+    global msg
+    msg='Dhruvi R. Bhikadiya'
+def enno():
+    global msg1
+    msg1='160210107008'
+def clg():
+    global msg2
+    msg2='govt.eng.clg.bvn.'
+def inx():
+    global size
+    size+=5
+def dex():
+    global size
+    size-=5
+def colour():
+    global i
+    i+=1
+    if i==len(color):
+        i=0
+def cname(x):
+    global msg
+    msg=x
+def cenno(y):
+    global msg1
+    msg1=y
+def cclg(z):
+    global msg2
+    msg2=z
+frame=simplegui.create_frame('first',500,300)
+frame.set_canvas_background('gray')
+frame.start()
+frame.set_draw_handler(draw)
+frame.add_button("name",name)
+frame.add_button("en.no.",enno)
+frame.add_button("clg.name",clg)
+frame.add_button("font+",inx)
+frame.add_button("font-",dex)
+frame.add_button("changecolor",colour)
+frame.add_input("chagename",cname,50)
+frame.add_input("changeen.no.",cenno,50)
+frame.add_input("changeclg",cclg,50)
